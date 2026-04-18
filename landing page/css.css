@@ -30,7 +30,7 @@ body{
     border-radius: 8px;
 }
 
-/*header section*/
+/* header section */
 
 header{
  display: flex;
@@ -101,7 +101,7 @@ color: #f170c4;
     
 }
 .titel1{
-    color: #b42020;
+    color: #eeeeee;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 .tital2{
