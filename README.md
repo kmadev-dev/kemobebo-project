@@ -5,8 +5,8 @@ Welcome to our first collaborative web development project! This is a modern, hi
 ## 🚀 Project Status: Phase 1 Complete
 We have successfully finalized the core layout and visual identity.
 
-- **Completed:** ✅ Navigation Bar & ✅ Hero Section & ✅ About Me.
-- **In Progress:** 🏗️ Building "Courses", and "Contact" sections.
+- **Completed:** ✅ Navigation Bar & ✅ Hero Section & ✅ About Me & ✅ Courses & Contact sections.
+- **In Progress:** nothing were done 🥳🥳.
 
 ---
 
@@ -21,10 +21,10 @@ We are currently working through the following roadmap:
 - [x] **Header & Navigation:** Smooth UI with logo integration.
 - [x] **Hero Section:** High-impact "Call to Action" design.
 - [x] **About Me Section:** Personal bio and coaching philosophy.
-- [ ] **Courses & Services:** Breakdown of available coaching sessions.
-- [ ] **Contact Section:** Direct communication channel for clients.
-- [ ] **Arabic Version (RTL):** Full support for Arabic language and right-to-left layout.
-- [ ] **Mobile Responsive:** Optimization for all screen sizes (Mobile & Tablet).
+- [x] **Courses & Services:** Breakdown of available coaching sessions.
+- [x] **Contact Section:** Direct communication channel for clients.
+- [x] **Arabic Version (RTL):** Full support for Arabic language and right-to-left layout.
+- [x] **Mobile Responsive:** Optimization for all screen sizes (Mobile & Tablet).
 
 ---
 
