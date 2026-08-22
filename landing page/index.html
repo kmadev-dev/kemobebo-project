@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- ============ HEADER: logo, nav links, mobile menu button ============ -->
     <header class="header">
         <img src="img/logo.png" alt="logo" class="logo">
         <button class="menu-toggle" id="menuToggle" aria-label="افتح القائمة" aria-expanded="false">
@@ -24,23 +25,26 @@
                 <li><a href="index-en.html" class="lang-switch">English</a></li>
             </ul>
         </nav>
-        
     </header>
 
+    <!-- Floating "scroll to top" button, shown by JS after scrolling down -->
     <button class="back-to-top" id="backToTop" aria-label="العودة للأعلى">↑</button>
+
+    <!-- ============ HERO: headline + CTA buttons + portrait ============ -->
     <section id="hero" class="hero">
     <div class="herosub">
         <h1 class="titel1">ألمك مسموع. مشاعرك مرئية.</h1>
         <h2 class="tital2">أساعدك على تخطي الألم النفسي "غير المرئي" وإيجاد التوازن من خلال دعم يحترم هويتك الفريدة.</h2>
-    
+
         <div class="herobutton">
-            <a href="https://api.whatsapp.com/send?phone=971508780362">ابدأ رحلتك</a>
+            <a href="booking.html">ابدأ رحلتك</a>
             <a href="#aboutme">قصتي</a>
         </div>
     </div>
     <img src="img/ola pic.jpg" alt="علا طرابيه - لايف كوتش" class="heropic">
     </section>
 
+    <!-- ============ PROCESS: the 3-step coaching journey ============ -->
     <section class="process-section">
     <h2 class="process-title">كيف نسير معًا</h2>
     <div class="process-container">
@@ -63,7 +67,9 @@
         </div>
     </div>
     </section>
-      <section id="aboutme" class="aboutme">
+
+    <!-- ============ ABOUT ME: bio + portrait photo ============ -->
+    <section id="aboutme" class="aboutme">
     <div class="about-content">
         <h2>علا طرابيه | مستشارة دعم نفسي ولايف كوتش</h2>
         <p>
@@ -84,9 +90,10 @@
     <div class="about-image">
         <img src="img/ola.jpg" alt="علا طرابيه" class="about-img-style">
     </div>
-   </section>
+    </section>
 
-   <section class="values-section">
+    <!-- ============ CORE VALUES: 3 philosophy cards ============ -->
+    <section class="values-section">
     <h2 class="section-title">فلسفتي الأساسية</h2>
     <div class="values-grid">
         <div class="value-card">
@@ -105,57 +112,51 @@
             <p>الوضوح يأتي من الفعل. لن نكتفي بالحديث؛ سنبني معًا خارطة طريق من خطوات صغيرة وفعّالة.</p>
         </div>
     </div>
-</section>
+    </section>
 
-<section class="fun-facts">
-    <div class="fact-item"><strong>+100</strong> حياة تغيّرت للأفضل</div>
-    <div class="fact-item"><strong>+5</strong> سنوات خبرة</div>
-    <div class="fact-item"><strong>📚</strong> أكثر من 50 كتابًا سنويًا</div>
-</section>
- <!------------------------------------------------------------------------------------------------------>
- <!------------------------------------------------------------------------------------------------------>
- <section id="previousproject">
-    <div  class="PS">
+    <!-- ============ FUN FACTS: quick stats bar ============ -->
+    <section class="fun-facts">
+        <div class="fact-item"><strong>+100</strong> حياة تغيّرت للأفضل</div>
+        <div class="fact-item"><strong>+5</strong> سنوات خبرة</div>
+        <div class="fact-item"><strong>📚</strong> أكثر من 50 كتابًا سنويًا</div>
+    </section>
+
+    <!-- ============ PREVIOUS PROJECTS: past coaching programs ============ -->
+    <section id="previousproject">
+    <div class="PS">
         <header class="ps_header">
             <h2 class="PS_tital">مشاريع سابقة</h2>
-            <div class="Ps_div"> <span class="PS_icon">✨</span></div>
-
+            <div class="Ps_div"><span class="PS_icon">✨</span></div>
         </header>
         <div class="PS_project">
-            
-         <article class="project12">
-            <div class="P_Img"><img src="img/project2.jpg" alt="بصائر التشافي">
-            </div>
-            <div class="P_info">
-                <h3>بصائر التشافي</h3>
-                <p>"بصائر التشافي" رحلة نفسية من 8 جلسات تأخذك من إعادة عيش الماضي إلى فهم معناه. من خلال ربط الأنماط الشخصية بالقصص القرآنية، تكتشف الدروس الخفية في ألمك، وتبدأ بكتابة نسخة أخف وأكثر صدقًا من قصتك.</p>
-            </div>
-         </article>
+            <article class="project12">
+                <div class="P_Img"><img src="img/project2.jpg" alt="بصائر التشافي"></div>
+                <div class="P_info">
+                    <h3>بصائر التشافي</h3>
+                    <p>"بصائر التشافي" رحلة نفسية من 8 جلسات تأخذك من إعادة عيش الماضي إلى فهم معناه. من خلال ربط الأنماط الشخصية بالقصص القرآنية، تكتشف الدروس الخفية في ألمك، وتبدأ بكتابة نسخة أخف وأكثر صدقًا من قصتك.</p>
+                </div>
+            </article>
 
-         <article class="project12">
-            <div class="P_Img"><img src="img/project1.jpg" alt="من الفصل الى الوصل">
-            </div>
-            <div class="P_info">
-                <h3>من الفصل إلى الوصل</h3>
-                <p>رحلة علاجية ترافقك من مشاعر التشتت والانفصال إلى اتصال واعٍ بذاتك وبطفلك. من خلال فهم أعمق لأنماطك، نعمل معًا على بناء علاقة قائمة على الهدوء والحضور والاحتواء العاطفي.</p>
-            </div>
-         </article>
-                
-            
+            <article class="project12">
+                <div class="P_Img"><img src="img/project1.jpg" alt="من الفصل الى الوصل"></div>
+                <div class="P_info">
+                    <h3>من الفصل إلى الوصل</h3>
+                    <p>رحلة علاجية ترافقك من مشاعر التشتت والانفصال إلى اتصال واعٍ بذاتك وبطفلك. من خلال فهم أعمق لأنماطك، نعمل معًا على بناء علاقة قائمة على الهدوء والحضور والاحتواء العاطفي.</p>
+                </div>
+            </article>
         </div>
-            <footer class="ts-footer">
-                <a href="https://api.whatsapp.com/send?phone=971508780362" class="ts-booking-btn">
-                    <span class="ts-calendar-icon">📅</span>
-                    احجز جلستك الخاصة
-                </a>
-            </footer>
+        <footer class="ts-footer">
+            <a href="booking.html" class="ts-booking-btn">
+                <span class="ts-calendar-icon">📅</span>
+                احجز جلستك الخاصة
+            </a>
+        </footer>
     </div>
+    </section>
 
-</section>
-
-<section id="Testimonials">
+    <!-- ============ TESTIMONIALS: client quote cards ============ -->
+    <section id="Testimonials">
     <div class="ts-container">
-        
         <header class="ts-header">
             <h2 class="ts-main-title">آراء العملاء</h2>
             <div class="ts-title-divider">
@@ -193,15 +194,16 @@
         </div>
 
         <footer class="ts-footer">
-            <a href="https://api.whatsapp.com/send?phone=971508780362" class="ts-booking-btn">
+            <a href="booking.html" class="ts-booking-btn">
                 <span class="ts-calendar-icon">📅</span>
                 احجز جلستك الخاصة
             </a>
         </footer>
     </div>
-</section>
+    </section>
 
-<section id="contact">
+    <!-- ============ CONTACT: social media link cards ============ -->
+    <section id="contact">
     <div class="contact-container">
         <header class="contact-header">
             <h2 class="contact-title">لنبقَ على تواصل</h2>
@@ -237,22 +239,23 @@
             </a>
         </div>
     </div>
-</section>
+    </section>
 
-
-    
+    <!-- ============ SCRIPT: mobile menu, hide-on-scroll header, back-to-top ============ -->
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const navigation = document.getElementById('navigation');
         const header = document.querySelector('.header');
         const backToTop = document.getElementById('backToTop');
 
+        // Toggle the mobile nav dropdown open/closed
         menuToggle.addEventListener('click', () => {
             const isOpen = navigation.classList.toggle('open');
             menuToggle.classList.toggle('open', isOpen);
             menuToggle.setAttribute('aria-expanded', isOpen);
         });
 
+        // Close the mobile nav whenever a link is clicked
         navigation.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navigation.classList.remove('open');
@@ -261,11 +264,12 @@
             });
         });
 
+        // Hide the header on scroll-down, reveal it on scroll-up;
+        // also show/hide the "back to top" button based on scroll position
         let lastScrollY = window.scrollY;
         window.addEventListener('scroll', () => {
             const currentScrollY = window.scrollY;
 
-            // Hide header on scroll down, show on scroll up
             if (currentScrollY > lastScrollY && currentScrollY > 120 && !navigation.classList.contains('open')) {
                 header.classList.add('hide-header');
             } else {
@@ -273,7 +277,6 @@
             }
             lastScrollY = currentScrollY;
 
-            // Show back-to-top button after scrolling down a bit
             if (currentScrollY > 400) {
                 backToTop.classList.add('visible');
             } else {
@@ -281,9 +284,30 @@
             }
         });
 
+        // Smooth-scroll to top when the button is clicked
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // If the visitor is already signed in (saved from a previous visit),
+        // send the booking buttons straight to WhatsApp — same as "ابدأ رحلتك" —
+        // instead of back through the sign in / sign up page.
+        (function applySavedSession() {
+            try {
+                const currentEmail = localStorage.getItem('ola_coach_current_user');
+                if (!currentEmail) return;
+                const users = JSON.parse(localStorage.getItem('ola_coach_users')) || [];
+                const isValidUser = users.some(u => u.email === currentEmail);
+                if (!isValidUser) return;
+
+                document.querySelectorAll('.ts-booking-btn').forEach(btn => {
+                    btn.setAttribute('href', 'https://api.whatsapp.com/send?phone=971508780362');
+                    btn.setAttribute('target', '_blank');
+                });
+            } catch {
+                // localStorage unavailable — leave the default booking-page links as-is
+            }
+        })();
     </script>
 </body>
 </html>

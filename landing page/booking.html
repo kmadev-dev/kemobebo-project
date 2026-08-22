@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول | علا طرابيه</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ============ HEADER: simplified (logo + back to home + language) ============ -->
+    <header class="header">
+        <a href="index.html"><img src="img/logo.png" alt="logo" class="logo"></a>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html">العودة للرئيسية</a></li>
+                <li><a href="booking-en.html" class="lang-switch">English</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ============ AUTH CARD: Sign In / Sign Up ============ -->
+    <div class="auth-page-wrap">
+        <div class="auth-card">
+
+            <!-- Form view: shown before the user is signed in -->
+            <div id="authFormsView">
+                <h2 class="auth-title">أهلًا بك</h2>
+                <p class="auth-subtitle">سجّلي الدخول أو أنشئي حساب لحجز جلستك الخاصة</p>
+
+                <div class="auth-tabs">
+                    <button type="button" class="auth-tab active" data-tab="signin">تسجيل الدخول</button>
+                    <button type="button" class="auth-tab" data-tab="signup">إنشاء حساب</button>
+                </div>
+
+                <div class="auth-error" id="authError"></div>
+
+                <!-- Sign In -->
+                <form class="auth-form active" id="signinForm" novalidate>
+                    <div class="auth-field">
+                        <label for="signinEmail">البريد الإلكتروني</label>
+                        <input type="email" id="signinEmail" autocomplete="email" required>
+                    </div>
+                    <div class="auth-field">
+                        <label for="signinPassword">كلمة المرور</label>
+                        <input type="password" id="signinPassword" autocomplete="current-password" required>
+                    </div>
+                    <button type="submit" class="auth-submit-btn">تسجيل الدخول</button>
+                </form>
+
+                <!-- Sign Up -->
+                <form class="auth-form" id="signupForm" novalidate>
+                    <div class="auth-field">
+                        <label for="signupName">الاسم الكامل</label>
+                        <input type="text" id="signupName" autocomplete="name" required>
+                    </div>
+                    <div class="auth-field">
+                        <label for="signupEmail">البريد الإلكتروني</label>
+                        <input type="email" id="signupEmail" autocomplete="email" required>
+                    </div>
+                    <div class="auth-field">
+                        <label for="signupPhone">رقم الهاتف</label>
+                        <div class="auth-phone-row">
+                            <select id="signupCountryCode">
+                                <option value="+971" selected>🇦🇪 +971</option>
+                                <option value="+966">🇸🇦 +966</option>
+                                <option value="+965">🇰🇼 +965</option>
+                                <option value="+974">🇶🇦 +974</option>
+                                <option value="+973">🇧🇭 +973</option>
+                                <option value="+968">🇴🇲 +968</option>
+                                <option value="+20">🇪🇬 +20</option>
+                                <option value="+962">🇯🇴 +962</option>
+                                <option value="+961">🇱🇧 +961</option>
+                                <option value="+964">🇮🇶 +964</option>
+                                <option value="+963">🇸🇾 +963</option>
+                                <option value="+1">🇺🇸 +1</option>
+                                <option value="+44">🇬🇧 +44</option>
+                            </select>
+                            <input type="tel" id="signupPhone" inputmode="numeric" autocomplete="tel-national" placeholder="5xxxxxxxx" required>
+                        </div>
+                    </div>
+                    <div class="auth-field">
+                        <label for="signupPassword">كلمة المرور</label>
+                        <input type="password" id="signupPassword" autocomplete="new-password" required>
+                    </div>
+                    <div class="auth-field">
+                        <label for="signupConfirm">تأكيد كلمة المرور</label>
+                        <input type="password" id="signupConfirm" autocomplete="new-password" required>
+                    </div>
+                    <button type="submit" class="auth-submit-btn">إنشاء الحساب</button>
+                </form>
+
+                <a href="index.html" class="auth-back-link">إلغاء والعودة للرئيسية</a>
+            </div>
+
+            <!-- Success view: shown after a successful sign in / sign up -->
+            <div class="auth-success" id="authSuccessView">
+                <h2 id="authSuccessTitle">تم تسجيل الدخول ✓</h2>
+                <p id="authSuccessMessage">أهلًا بك من جديد. اضغطي فوق لإتمام حجز جلستك عبر واتساب.</p>
+                <a href="https://api.whatsapp.com/send?phone=971508780362" target="_blank" class="auth-whatsapp-btn">
+                    📅 إتمام الحجز عبر واتساب
+                </a>
+                <a href="index.html" class="auth-back-link">العودة للرئيسية</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============ SCRIPT: tab switching + localStorage-based sign in / sign up ============ -->
+    <script>
+        const STORAGE_KEY = 'ola_coach_users';
+        const SESSION_KEY = 'ola_coach_current_user';
+
+        function getUsers() {
+            try {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+            } catch {
+                return [];
+            }
+        }
+        function saveUsers(users) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
+        }
+        function rememberSession(email) {
+            localStorage.setItem(SESSION_KEY, email);
+        }
+
+        // --- Tab switching ---
+        const tabs = document.querySelectorAll('.auth-tab');
+        const forms = document.querySelectorAll('.auth-form');
+        const errorBox = document.getElementById('authError');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                forms.forEach(f => f.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab + 'Form').classList.add('active');
+                hideError();
+            });
+        });
+
+        function showError(message) {
+            errorBox.textContent = message;
+            errorBox.classList.add('visible');
+        }
+        function hideError() {
+            errorBox.classList.remove('visible');
+            errorBox.textContent = '';
+        }
+
+        function showSuccess(name) {
+            document.getElementById('authFormsView').style.display = 'none';
+            const successView = document.getElementById('authSuccessView');
+            successView.classList.add('active');
+            document.getElementById('authSuccessTitle').textContent = 'أهلًا ' + name + ' ✓';
+        }
+
+        // --- Sign Up ---
+        document.getElementById('signupForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            hideError();
+
+            const name = document.getElementById('signupName').value.trim();
+            const email = document.getElementById('signupEmail').value.trim().toLowerCase();
+            const countryCode = document.getElementById('signupCountryCode').value;
+            const phoneDigits = document.getElementById('signupPhone').value.trim();
+            const password = document.getElementById('signupPassword').value;
+            const confirm = document.getElementById('signupConfirm').value;
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!name || !phoneDigits) {
+                showError('فضلًا عبّي كل الحقول.');
+                return;
+            }
+            if (!emailPattern.test(email)) {
+                showError('البريد الإلكتروني غير صحيح.');
+                return;
+            }
+            if (password.length < 6) {
+                showError('كلمة المرور يجب أن تكون 6 أحرف على الأقل.');
+                return;
+            }
+            if (password !== confirm) {
+                showError('كلمتا المرور غير متطابقتين.');
+                return;
+            }
+
+            const phone = countryCode + ' ' + phoneDigits;
+            const users = getUsers();
+            if (users.some(u => u.email === email)) {
+                showError('هذا البريد مسجّل مسبقًا. جرّبي تسجيل الدخول بدل ذلك.');
+                return;
+            }
+
+            users.push({ name, email, phone, password });
+            saveUsers(users);
+            rememberSession(email);
+            showSuccess(name);
+        });
+
+        // --- Sign In ---
+        document.getElementById('signinForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            hideError();
+
+            const email = document.getElementById('signinEmail').value.trim().toLowerCase();
+            const password = document.getElementById('signinPassword').value;
+
+            const users = getUsers();
+            const user = users.find(u => u.email === email && u.password === password);
+
+            if (!user) {
+                showError('البريد الإلكتروني أو كلمة المرور غير صحيحة.');
+                return;
+            }
+
+            rememberSession(user.email);
+            showSuccess(user.name);
+        });
+
+        // --- Remembered session: skip straight to the success view on return visits ---
+        (function checkSavedSession() {
+            const savedEmail = localStorage.getItem(SESSION_KEY);
+            if (!savedEmail) return;
+            const users = getUsers();
+            const user = users.find(u => u.email === savedEmail);
+            if (user) showSuccess(user.name);
+        })();
+    </script>
+</body>
+</html>
