@@ -192,7 +192,7 @@ html[dir="rtl"] .back-to-top {
     right: 24px;
     width: 48px;
     height: 48px;
-    background-color: var(--color-accent);
+    background-color: var(--color-dark);
     color: var(--color-white);
     border: none;
     border-radius: 50%;
@@ -208,8 +208,8 @@ html[dir="rtl"] .back-to-top {
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
     z-index: 999;
 }
-.back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
-.back-to-top:hover { background-color: var(--color-dark); }
+.back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(-20px); }
+
 
 
 /* ============================================================
